@@ -26,9 +26,9 @@
   </head>
   <body>
     <canvas id="unity-canvas" tabindex="-1"></canvas>
-    <script src="Build/FlutterUnity-Web.loader.js"></script>
+    <script src="Build/FlutterUnity Web.loader.js"></script>
     <script>
-      // Adiciona viewport meta tag para garantir escalabilidade adequada em dispositivos móveis
+      // Adiciona meta tag para responsividade em dispositivos móveis
       var meta = document.createElement('meta');
       meta.name = 'viewport';
       meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
@@ -36,23 +36,24 @@
 
       const canvas = document.querySelector("#unity-canvas");
 
-      // Inicialização do Unity
+      // Inicializa a instância Unity
       createUnityInstance(canvas, {
         arguments: [],
-        dataUrl: "Build/FlutterUnity-Web.data",
-        frameworkUrl: "Build/FlutterUnity-Web.framework.js",
-        codeUrl: "Build/FlutterUnity-Web.wasm",
+        dataUrl: "Build/FlutterUnity Web.data",
+        frameworkUrl: "Build/FlutterUnity Web.framework.js",
+        codeUrl: "Build/FlutterUnity Web.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Flutter Integration",
         productVersion: "1.0",
         matchWebGLToCanvasSize: true
       }).then((unityInstance) => {
-        // Atualiza o tamanho do canvas caso a janela seja redimensionada
+        // Faz o canvas se redimensionar com a tela
         function resizeCanvas() {
           canvas.width = window.innerWidth;
           canvas.height = window.innerHeight;
         }
+
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
       });
